@@ -13,12 +13,6 @@ public class NurikabeImporter extends PuzzleImporter {
         super(nurikabe);
     }
 
-    /**
-     * Creates the board for building
-     *
-     * @param node xml document node
-     * @throws InvalidFileFormatException
-     */
     @Override
     public void initializeBoard(Node node) throws InvalidFileFormatException {
         try {

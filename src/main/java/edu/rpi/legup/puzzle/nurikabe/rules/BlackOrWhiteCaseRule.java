@@ -20,13 +20,6 @@ public class BlackOrWhiteCaseRule extends CaseRule {
                 "edu/rpi/legup/images/nurikabe/cases/BlackOrWhite.png");
     }
 
-    /**
-     * Checks whether the {@link TreeTransition} logically follows from the parent node using this rule. This method is
-     * the one that should overridden in child classes.
-     *
-     * @param transition transition to check
-     * @return null if the child node logically follow from the parent node, otherwise error message
-     */
     @Override
     public String checkRuleRaw(TreeTransition transition) {
         List<TreeTransition> childTransitions = transition.getParents().get(0).getChildren();
@@ -68,13 +61,6 @@ public class BlackOrWhiteCaseRule extends CaseRule {
         return caseBoard;
     }
 
-    /**
-     * Gets the possible cases at a specific location based on this case rule
-     *
-     * @param board         the current board state
-     * @param puzzleElement equivalent puzzleElement
-     * @return a list of elements the specified could be
-     */
     @Override
     public ArrayList<Board> getCases(Board board, PuzzleElement puzzleElement) {
         ArrayList<Board> cases = new ArrayList<>();
@@ -93,15 +79,6 @@ public class BlackOrWhiteCaseRule extends CaseRule {
         return cases;
     }
 
-    /**
-     * Checks whether the child node logically follows from the parent node
-     * at the specific puzzleElement index using this rule
-     *
-     * @param transition    transition to check
-     * @param puzzleElement equivalent puzzleElement
-     * @return null if the child node logically follow from the parent node at the specified puzzleElement,
-     * otherwise error message
-     */
     @Override
     public String checkRuleRawAt(TreeTransition transition, PuzzleElement puzzleElement) {
         return null;

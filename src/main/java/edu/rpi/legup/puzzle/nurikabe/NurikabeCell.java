@@ -2,7 +2,7 @@ package edu.rpi.legup.puzzle.nurikabe;
 
 import edu.rpi.legup.model.gameboard.GridCell;
 
-import java.awt.*;
+import java.awt.Point;
 
 public class NurikabeCell extends GridCell<Integer> {
 

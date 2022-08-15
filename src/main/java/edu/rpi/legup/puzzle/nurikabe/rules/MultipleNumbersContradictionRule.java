@@ -12,30 +12,21 @@ import edu.rpi.legup.utility.DisjointSets;
 import java.util.Set;
 
 public class MultipleNumbersContradictionRule extends ContradictionRule {
-
     private final String NO_CONTRADICTION_MESSAGE = "Does not contain a contradiction at this index";
     private final String INVALID_USE_MESSAGE = "Contradiction must be a numbered cell";
 
     public MultipleNumbersContradictionRule() {
         super("Multiple Numbers",
                 "All white regions cannot have more than one number.",
-                "edu/rpi/legup/images/nurikabe/contradictions/MultipleNumbers.png");
+                "edu/rpi/legup/images/nurikabe/contradictions/MultipleNumber.png");
     }
 
-    /**
-     * Checks whether the transition has a contradiction at the specific puzzleElement index using this rule
-     *
-     * @param board         board to check contradiction
-     * @param puzzleElement equivalent puzzleElement
-     * @return null if the transition contains a contradiction at the specified puzzleElement,
-     * otherwise error message
-     */
     @Override
     public String checkContradictionAt(Board board, PuzzleElement puzzleElement) {
         NurikabeBoard nurikabeBoard = (NurikabeBoard) board;
 
         NurikabeCell cell = (NurikabeCell) nurikabeBoard.getPuzzleElement(puzzleElement);
-        if (cell.getType() != NurikabeType.NUMBER) {
+        if(cell.getType() != NurikabeType.NUMBER) {
             return super.getInvalidUseOfRuleMessage() + ": " + INVALID_USE_MESSAGE;
         }
         DisjointSets<NurikabeCell> regions = NurikabeUtilities.getNurikabeRegions(nurikabeBoard);

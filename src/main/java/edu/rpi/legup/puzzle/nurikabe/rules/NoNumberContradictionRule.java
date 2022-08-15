@@ -12,7 +12,6 @@ import edu.rpi.legup.utility.DisjointSets;
 import java.util.Set;
 
 public class NoNumberContradictionRule extends ContradictionRule {
-
     private final String NO_CONTRADICTION_MESSAGE = "Does not contain a contradiction at this index";
     private final String INVALID_USE_MESSAGE = "Contradiction must be a white cell";
     private final String NOT_SURROUNDED_BY_BLACK_MESSAGE = "Must be surrounded by black cells";
@@ -23,14 +22,6 @@ public class NoNumberContradictionRule extends ContradictionRule {
                 "edu/rpi/legup/images/nurikabe/contradictions/NoNumber.png");
     }
 
-    /**
-     * Checks whether the transition has a contradiction at the specific puzzleElement index using this rule
-     *
-     * @param board         board to check contradiction
-     * @param puzzleElement equivalent puzzleElement
-     * @return null if the transition contains a contradiction at the specified puzzleElement,
-     * otherwise error message
-     */
     @Override
     public String checkContradictionAt(Board board, PuzzleElement puzzleElement) {
         NurikabeBoard nurikabeBoard = (NurikabeBoard) board;
@@ -47,7 +38,6 @@ public class NoNumberContradictionRule extends ContradictionRule {
             }
         }
         for (NurikabeCell c : whiteRegion) {
-            // System.out.println(c.getLocation().x + "\t" + c.getLocation().y);
             NurikabeCell top = nurikabeBoard.getCell(c.getLocation().x, c.getLocation().y+1);
             NurikabeCell left = nurikabeBoard.getCell(c.getLocation().x-1, c.getLocation().y);
             NurikabeCell right = nurikabeBoard.getCell(c.getLocation().x+1, c.getLocation().y);
@@ -59,12 +49,6 @@ public class NoNumberContradictionRule extends ContradictionRule {
         return null;
     }
 
-    /**
-     * Checks whether a give NurikabeCell is empty.
-     *
-     * @param cell  NurikabeCell to check if empty
-     * @return      false if the NurikabeCell is not empty or null, true otherwise
-     */
     private boolean isEmptyCell(NurikabeCell cell)
     {
         if (cell == null)

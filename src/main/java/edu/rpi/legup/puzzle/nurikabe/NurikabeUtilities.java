@@ -10,12 +10,6 @@ import java.util.Set;
 
 public class NurikabeUtilities {
 
-    /**
-     * Gets all of the numbered cells in the Nurikabe board
-     *
-     * @param board nurikabe board
-     * @return a list of all of the numbered cells
-     */
     public static Set<NurikabeCell> getNurikabeNumberedCells(NurikabeBoard board) {
         Set<NurikabeCell> numberedCells = new HashSet<>();
 
@@ -28,12 +22,6 @@ public class NurikabeUtilities {
         return numberedCells;
     }
 
-    /**
-     * Gets nurikabe regions of black, white, and unknown cells
-     *
-     * @param board nurikabe board
-     * @return a disjoint set of the regions
-     */
     public static DisjointSets<NurikabeCell> getNurikabeRegions(NurikabeBoard board) {
         int width = board.getWidth();
         int height = board.getHeight();
@@ -79,13 +67,6 @@ public class NurikabeUtilities {
         return regions;
     }
 
-    /**
-     * Gets the disjoint set containing the possible black regions be interpreting all unknown cells
-     * as black cells
-     *
-     * @param board nurikabe board
-     * @return the disjoint set containing the possible black regions
-     */
     public static DisjointSets<NurikabeCell> getPossibleBlackRegions(NurikabeBoard board) {
         int width = board.getWidth();
         int height = board.getHeight();
@@ -118,13 +99,6 @@ public class NurikabeUtilities {
         return blackRegions;
     }
 
-    /**
-     * Gets the disjoint set containing the possible white regions be interpreting all unknown cells
-     * as white cells
-     *
-     * @param board nurikabe board
-     * @return the disjoint set containing the possible white regions
-     */
     public static DisjointSets<NurikabeCell> getPossibleWhiteRegions(NurikabeBoard board) {
         int width = board.getWidth();
         int height = board.getHeight();
@@ -158,12 +132,6 @@ public class NurikabeUtilities {
         return whiteRegions;
     }
 
-    /**
-     * Gets a list of flood filled white regions with remaining white cells
-     *
-     * @param board nurikabe board
-     * @return a list of flood filled white regions
-     */
     public static ArrayList<Set<NurikabeCell>> getFloodFillWhite(NurikabeBoard board) {
         int width = board.getWidth();
         int height = board.getHeight();

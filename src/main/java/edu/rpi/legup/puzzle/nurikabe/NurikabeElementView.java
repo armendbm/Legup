@@ -13,11 +13,6 @@ public class NurikabeElementView extends GridElementView {
         super(cell);
     }
 
-    /**
-     * Gets the PuzzleElement associated with this view
-     *
-     * @return PuzzleElement associated with this view
-     */
     @Override
     public NurikabeCell getPuzzleElement() {
         return (NurikabeCell) super.getPuzzleElement();
